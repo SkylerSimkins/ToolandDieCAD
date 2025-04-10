@@ -19,12 +19,17 @@ class CADWindow(QMainWindow):
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
-            pos = self.display.GetViewer().GetPoint(event.x(), event.y())
-            self.points.append((pos[0], pos[1]))  # Store 2D point
-            print(f"Clicked: {self.points[-1]}")  # Debug for now
-            if len(self.points) == 2:  # Draw line between two points
-                # Placeholder for line drawing—expand this later
-                self.points.clear()
+            x, y = event.x(), event.y()
+            try:
+                # Use V3d_View to convert 2D mouse coordinates to 3D
+                x_3d, y_3d, z_3d, vx, vy, vz = self.display.view.ConvertWithProj(x, y)
+                self.points.append((x_3d, y_3d, z_3d))
+                print(f"Clicked 3D point: {self.points[-1]}")
+                if len(self.points) == 2:
+                    print("Ready to draw a line between points:", self.points)
+                    self.points.clear()  # Reset for next sketch
+            except Exception as e:
+                print(f"Error converting coordinates: {e}")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
