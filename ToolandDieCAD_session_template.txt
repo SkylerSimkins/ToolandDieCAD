@@ -1,0 +1,31 @@
+---
+# ToolandDieCAD Session Template
+# Instructions:
+# 1. Copy this file to a new one (e.g., session_YYYY-MM-DD.txt) before starting a new chat.
+# 2. Fill in each section with the latest details (delete example text or overwrite it).
+# 3. Paste the contents into the chat with Grok to continue where you left off.
+# 4. Save the filled-in session file in your project folder for reference.
+# Project folder: C:\Users\Home\Documents\ToolandDieCAD\ToolandDieCAD
+# GitHub repo: https://github.com/SkylerSimkins/ToolandDieCAD (update if different)
+
+## Project Overview
+- **Goal**: Build a free, open-source CAD tool for tool and die makers, rivaling SolidWorks’ sketching, 3D modeling, and die design features.
+- **Why**: SolidWorks is expensive ($4,000-$8,000 + maintenance); this will be accessible for small shops and hobbyists.
+- **Current Scope**: Minimum viable product (MVP) with 2D sketching, extrusion, and 3D viewing, built in Python for rapid prototyping.
+- **Tech Stack**: Python 3.10, PyQt5 (GUI), pythonocc-core (OpenCASCADE for 3D geometry), Conda (environment), Git (version control).
+- **My Role**: Tool and die maker, coding in free time, not a pro programmer but learning with Grok’s help.
+- **Grok’s Role**: Provide code fixes, suggest features, explain CAD concepts, guide Git/setup.
+
+## Environment Setup
+- **OS**: Windows (update if changed, e.g., Linux/Mac).
+- **Conda Environment**: Named `pyocc`, Python 3.10.
+  - Activate: `conda activate pyocc`
+  - Key packages:
+    - pythonocc-core==7.8.1.1
+    - pyqt (for GUI)
+    - Others (list any new ones, e.g., numpy):
+- **How to Run**:
+  ```powershell
+  cd C:\Users\Home\Documents\ToolandDieCAD\ToolandDieCAD
+  conda activate pyocc
+  python src\main.py
